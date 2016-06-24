@@ -1,6 +1,8 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable array-callback-return */
+/* eslint-disable func-names */
+/* eslint-disable prefer-arrow-callback */
 
 import express from 'express';
 const router = module.exports = express.Router();
@@ -18,9 +20,10 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Country.findById(req.params.id, (err, country) => {
-    console.log(country);
-    res.render('countries/show');
+  Country.findById(req.params.id)
+  .populate('cities')
+  .exec(function (err, country) {
+    res.render('countries/show', { country });
   });
 });
 

@@ -9,6 +9,7 @@ const citySchema = new Schema({
   country: { type: mongoose.Schema.ObjectId, ref: 'Country', required: true },
   cost: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
+  persons: [{ type: mongoose.Schema.ObjectId, ref: 'Person' }],
 });
 
 
