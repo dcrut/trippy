@@ -3,3 +3,10 @@ extends ../shared/template
 
 block content
   h1 List of Countries
+  table
+    each country in countries
+      tr
+        td
+          a(href=`countries/${country._id}`)=country.name
+        td  
+          img(src=country.photos)

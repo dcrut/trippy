@@ -7,7 +7,9 @@ import Country from '../models/country';
 
 
 router.get('/', (req, res) => {
-  res.render('countries/index');
+  Country.find((err, countries) => {
+    res.render('countries/index', { countries });
+  });
 });
 
 router.get('/new', (req, res) => {
