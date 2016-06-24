@@ -1,0 +1,27 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-4
+    .col-xs-4
+      h1 Create Person!
+    .col-xs-3
+  .row
+    .col-xs-4
+    .col-xs-4
+      form(action='/person', method='post')
+        .form-group
+          label Full Name
+          input.form-control(name='name', type='text', placeholder='Jimbob')
+          label Photo
+          input.form-control(name='photo', type='url', placeholder='http://...')
+          label Age in Years
+          input.form-control(name='age', type='number', placeholder='30')
+          label Gender
+          select.form-control(name='gender')
+              option(value='male') Male
+              option(value='female') Female
+              option(value='other') Other
+          label Money
+          input.form-control(name='money', type='number', placeholder='3000')
+        button.btn.btn-default(type='submit') Submit
+      .col-xs-4
