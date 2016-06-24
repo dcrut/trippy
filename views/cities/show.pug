@@ -2,4 +2,10 @@ extends ../shared/template
 
 
 block content
-  h1 Here is your city (show page)
+  h1=city.name
+  h3=city.country.name
+  div
+    img(src=city.photos)
+
+
+  div=city.cost

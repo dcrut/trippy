@@ -2,13 +2,15 @@ extends ../shared/template
 
 
 block content
-  h1 Here is your country (show page)
+  h1=country.name
+  div
+    img(src=country.photos)
 
-  h1 List of Cities
-  table
-    each city in cities
-      tr
-        td
-          a(href=`cities/${city._id}`)=city.name
-        td
-          img(src=city.photos)
+  h3 List of Cities
+   table
+     each city in country.cities
+       tr
+         td
+           a(href=`/cities/${city._id}`)=city.name
+         td
+           img(src=city.photos)
