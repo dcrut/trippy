@@ -1,4 +1,5 @@
 /* eslint-disable new-cap */
+/* eslint-disable no-underscore-dangle */
 
 import express from 'express';
 const router = module.exports = express.Router();
@@ -20,6 +21,6 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const c = new Country(req.body);
   c.save(() => {
-    res.send(c);
+    res.redirect(`/countries/${c._id}`);
   });
 });

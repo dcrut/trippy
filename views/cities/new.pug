@@ -3,3 +3,20 @@ extends ../shared/template
 
 block content
   h1 Here is where you create a city
+  form(action='/cities', method='post')
+   .form-group
+     label(for='Name') Name
+     input.form-control(type='text', placeholder='Name', name='name')
+   .form-group
+     label(for='Country') Country
+     select.form-control(name='country')
+       each country in countries
+           option(value=country.value)=country.name
+   .form-group
+     label(for='Photos') Photos
+     input.form-control(type='text', placeholder='Photos', name='photos')
+   .form-group
+     label(for='Cost') Cost
+     input.form-control(type='number', placeholder='Cost', name='cost')
+   .form-group
+     button(type='Submit').fa-spin Make a City !!!
