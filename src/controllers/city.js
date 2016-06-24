@@ -2,6 +2,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable array-callback-return */
 
+
 import express from 'express';
 const router = module.exports = express.Router();
 import City from '../models/city';
