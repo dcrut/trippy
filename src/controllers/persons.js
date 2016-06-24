@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-underscore-dangle */
 import Person from '../models/person';
+import Country from '../models/country';
 import express from 'express';
 const router = module.exports = express.Router();
 
@@ -10,7 +11,10 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Person.findById(req.params.id, (err, found) => {
-    res.render('person/personView', { person: found });
+    Country.find((err2, countryResults) => {
+      res.render('person/personView', { person: found, countries: countryResults });
+      return null;
+    });
   });
 });
 

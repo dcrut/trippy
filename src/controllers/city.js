@@ -15,6 +15,12 @@ router.get('/new', (req, res) => {
   });
 });
 
+router.get('/getCities', (req, res) => {
+  City.find((err, results) => {
+    res.send(results);
+  });
+});
+
 router.get('/:id', (req, res) => {
   City.findById(req.params.id)
   .populate('country')
