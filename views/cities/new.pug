@@ -11,7 +11,7 @@ block content
      label(for='Country') Country
      select.form-control(name='country')
        each country in countries
-           option(value=country.value)=country.name
+           option(value=country._id.toString())=country.name
    .form-group
      label(for='Photos') Photos
      input.form-control(type='text', placeholder='Photos', name='photos')

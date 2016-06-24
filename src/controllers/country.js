@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable array-callback-return */
 
 import express from 'express';
 const router = module.exports = express.Router();
@@ -7,7 +8,9 @@ import Country from '../models/country';
 
 
 router.get('/', (req, res) => {
-  res.render('countries/index');
+  Country.find((err, countries) => {
+    res.render('countries/index', { countries });
+  });
 });
 
 router.get('/new', (req, res) => {
@@ -15,7 +18,10 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.render('countries/show');
+  Country.findById(req.params.id, (err, country) => {
+    console.log(country);
+    res.render('countries/show');
+  });
 });
 
 router.post('/', (req, res) => {
